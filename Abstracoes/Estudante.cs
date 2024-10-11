@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POO_E3.Abstracoes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,9 @@ using System.Threading.Tasks;
 
 namespace POO_E2.Abstracoes
 {
-    // Classe que representa um estudante da escola
-    public class Estudante
+    // Classe que representa um estudante
+    public class Estudante : Pessoa
     {
-        public string Nome { get; set; }   // Propriedade 
-        public int Matricula { get; set; } // Propriedade 
-
-        // Construtor para inicializar um novo estudante
-        public Estudante(string nome, int matricula)
-        {
-            Nome = nome;
-            Matricula = matricula;
-        }
+        public Estudante(string nome, int matricula) : base(nome, matricula) { }
     }
 }
