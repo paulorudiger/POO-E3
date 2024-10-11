@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POO_E2.Abstracoes
 {
-    // Classe que representa uma reserva de livro por um estudante, gerenciada por um professor
+    // Classe que representa uma reserva de livro
     public class Reserva
     {
-        // encapsulamento 
-        public Livro Livro { get; set; }        //Propriedade q represetna o livro reservado
-        public Estudante Estudante { get; set; } // Propriedade q represetna o estudante q reservou o livro
-        public Professor Professor { get; set; } // Propriedade q represetna o professor q fez a resreva para o aluno
-        public DateTime DataReserva { get; set; } // Dia da reserva
+        public Livro Livro { get; private set; }
+        public Estudante Estudante { get; private set; }
+        public Professor Professor { get; private set; }
+        public DateTime DataReserva { get; private set; }
 
-        // Construtor para inicializar uma nova reserva
         public Reserva(Livro livro, Estudante estudante, Professor professor)
         {
             Livro = livro;
             Estudante = estudante;
             Professor = professor;
             DataReserva = DateTime.Now;
+        }
+
+        // Verifica se a reserva foi feita hoje
+        public bool FoiReservadoHoje()
+        {
+            return DataReserva.Date == DateTime.Now.Date;
         }
     }
 }

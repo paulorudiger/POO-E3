@@ -1,38 +1,44 @@
-﻿// See https://aka.ms/new-console-template for more information
-using POO_E2.Abstracoes;
-using POO_E2.Servicos;
+﻿using POO_E2.Abstracoes;
+using ProjetoBiblioteca.Servicos;
+using System;
 
-Console.WriteLine("Hello, World!");
+namespace ProjetoBiblioteca
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Inicializa a biblioteca
+            var biblioteca = new Biblioteca();
 
-// Inicializa a biblioteca
-Biblioteca biblioteca = new Biblioteca();
+            // Exemplos de uso
+            var professor = new Professor("João Silva", 123);
+            var estudante = new Estudante("Ana Souza", 456);
+            var livro = new Livro("Aprendizado C#", "Pedro Oliveira");
 
+            // Exibe informações iniciais
+            Console.WriteLine($"Professor: {professor.Nome}, Matrícula: {professor.Matricula}");
+            Console.WriteLine($"Estudante: {estudante.Nome}, Matrícula: {estudante.Matricula}");
+            Console.WriteLine($"Livro: {livro.Titulo}, Autor: {livro.Autor}");
+            Console.WriteLine();
 
-// Criação de exemplos
-Professor professor = new Professor("João Silva", 123); // Adiciona matrícula ao professor
-Estudante estudante = new Estudante("Ana Souza", 456);
-Livro livro = new Livro("Aprendizado C#", "Pedro Oliveira", professor);
+            // Reservar um livro
+            Console.WriteLine("Realizando a reserva do livro...");
+            biblioteca.Reservar(livro, estudante, professor);
+            Console.WriteLine();
 
-// Exibe informações iniciais
-Console.WriteLine($"Professor: {professor.Nome}, Matrícula: {professor.Matricula}");
-Console.WriteLine($"Estudante: {estudante.Nome}, Matrícula: {estudante.Matricula}");
-Console.WriteLine($"Livro: {livro.Titulo}, Autor: {livro.Autor}, Professor Responsável: {professor.Nome}");
-Console.WriteLine();
+            // Cancelar uma reserva
+            Console.WriteLine("Cancelando a reserva do livro...");
+            biblioteca.CancelarReserva(livro, estudante);
+            Console.WriteLine();
 
-// Reservar um livro
-Console.WriteLine("Realizando a reserva do livro...");
-biblioteca.ReservarLivro(livro, estudante, professor);
-Console.WriteLine();
+            // Devolver um livro
+            Console.WriteLine("Devolvendo o livro...");
+            biblioteca.RegistrarDevolucao(livro, estudante);
+            Console.WriteLine();
 
-// Cancelar uma reserva
-Console.WriteLine("Cancelando a reserva do livro...");
-biblioteca.CancelarReserva(livro, estudante);
-Console.WriteLine();
-
-// Devolver um livro
-Console.WriteLine("Devolvendo o livro...");
-biblioteca.DevolverLivro(livro, estudante);
-Console.WriteLine();
-
-// Mensagem final
-Console.WriteLine("Operações realizadas com sucesso!");
+            // Mensagem final
+            Console.WriteLine("Operações realizadas com sucesso!");
+        }
+    }
+}

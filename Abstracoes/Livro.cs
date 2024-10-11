@@ -9,11 +9,10 @@ namespace POO_E2.Abstracoes
     // Classe que representa um livro na biblioteca
     public class Livro
     {
-        public string Titulo { get; set; }   // Propriedada
-        public string Autor { get; set; }    // Propriedada
+        public string Titulo { get; private set; }
+        public string Autor { get; private set; }
 
-        // Construtor p/ inicializar um novo livro
-        public Livro(string titulo, string autor, Professor professor)
+        public Livro(string titulo, string autor)
         {
             Titulo = titulo;
             Autor = autor;

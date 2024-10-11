@@ -3,14 +3,13 @@ using System.IO;
 
 namespace BibliotecaEscola.Servicos
 {
-    // Classe que gerencia o registro de logs em um arquivo
+    // Classe responsável pelo registro de logs em arquivo
     public class Log
     {
-        // encapsulamento
-        private const string caminhoLog = "E:\\Facul\\POO-E2\\log.txt"; // Caminho do arquivo de log
+        private const string caminhoLog = "E:\\Facul\\POO-E3\\POO-E3\\log.txt"; // Caminho do log
 
-        // Método para gravar uma mensagem de log no arquivo
-        public void GravarLog(string mensagem)
+        // Grava uma mensagem de log no arquivo
+        public void Gravar(string mensagem)
         {
             using (StreamWriter escritor = new StreamWriter(caminhoLog, true))
             {
